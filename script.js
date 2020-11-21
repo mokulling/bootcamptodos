@@ -3,7 +3,7 @@ var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 
-var todos = JSON.parse(localStorage.getItem('todos'))
+var todos = JSON.parse(localStorage.getItem('todos')) || []
 
 
 function renderTodos() {
