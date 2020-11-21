@@ -7,6 +7,9 @@ var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
 
 function renderTodos() {
+    //clear existing todos
+    todoList.innerHTML = '' 
+    // re-redner to dos 
     for (var i = 0; i < todos.length; i++) {
         //create li element
         var li = document.createElement('li')
@@ -16,5 +19,22 @@ function renderTodos() {
         todoList.appendChild(li)
     }
 }
+
+function addTodo (event) {
+    event.preventDefault()
+    //get input value - todoInput
+    var newtodo = todoInput.value
+    if (newtodo !== '') {
+    //push value into todos array
+    todos.push(newtodo)
+    //call renderTodos 
+    todoInput.value =''
+    renderTodos()
+
+    }
+}
+
+
+todoForm.addEventListener('submit', addTodo)
 
 renderTodos()
