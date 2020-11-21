@@ -21,7 +21,7 @@ function renderTodos() {
         button.innerText = 'Complete'
         li.appendChild(button)
         // append list item to #todo-list
-        todoList.appendChild(li)
+        todoList.appendChild(li) 
     }
 }
 
@@ -39,7 +39,22 @@ function addTodo (event) {
     }
 }
 
+function removeTodo (event) {
+    var target = event.target
+    if (target.matches('button')) {
+        // find index.form li
+        var index = parseInt(target.parentNode.getAttribute('data-index'))
+        //remove the todo from todos array
+        todos.splice(index, 1)
+        // re render todos 
+        renderTodos()
+
+    }
+
+}
 
 todoForm.addEventListener('submit', addTodo)
+todoList.addEventListener('click',  removeTodo)
+
 
 renderTodos()
